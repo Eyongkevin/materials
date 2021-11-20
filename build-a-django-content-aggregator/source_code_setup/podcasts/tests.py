@@ -1,5 +1,6 @@
 from django.test import TestCase
 from django.utils import timezone
+from django.urls.base import reverse
 from .models import Episode
 
 # Create your tests here.
@@ -24,3 +25,15 @@ class PodCastsTests(TestCase):
         self.assertEqual(
             str(self.episode), "My First Podcast with Python/Django: My Podcast Episode"
         )
+
+    def test_home_page_status_code(self):
+        response = self.client.get('/')
+        self.assertEqual(response.status_code, 200)
+
+    def test_home_page_uses_correct_template(self):
+        response = self.client.get(reverse('home_page'))
+        self.assertTemplateUsed(response, 'homepage.html')
+
+    def test_home_page_contains_correct_content(self):
+        response = self.client.get(reverse('home_page'))
+        self.assertContains(response, 'Preparing to launch my portfolio')
