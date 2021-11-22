@@ -47,6 +47,11 @@ def talk_python_rss():
     _feed = feedparser.parse("https://talkpython.fm/episodes/rss")
     save_new_feeds(_feed)
 
+@register_rss
+def data_science_at_home_rss():
+    _feed = feedparser.parse("https://feed.podbean.com/datascienceathome/feed.xml")
+    save_new_feeds(_feed)
+
 def delete_old_job_executions(max_age = 604_800):
     '""Delete all apscheduler job execition logs older than amax_age'
     DjangoJobExecution.ojbects.delete_old_job_executions(max_age)
