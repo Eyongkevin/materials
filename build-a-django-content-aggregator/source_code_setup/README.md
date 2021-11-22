@@ -6,7 +6,7 @@ This is a project build on Django
 This details the set up process for this project 
 ### Clone this project
 ### Set up a virtual environment 
-cd into this project directory, create and activate a virtual environment
+`cd` into this project directory, create and activate a virtual environment
 
 ` python -m venv .venv`
 
