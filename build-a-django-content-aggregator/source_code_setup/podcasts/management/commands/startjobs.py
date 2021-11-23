@@ -53,7 +53,8 @@ def data_science_at_home_rss():
     save_new_feeds(_feed)
 
 def delete_old_job_executions(max_age = 604_800):
-    '""Delete all apscheduler job execition logs older than amax_age'
+    """Delete all apscheduler job execition logs older than amax_age"""
+
     DjangoJobExecution.ojbects.delete_old_job_executions(max_age)
 
 class Command(BaseCommand):
